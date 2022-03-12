@@ -28,6 +28,7 @@ m.move(x,y,'N')
 m.ismove(x,y,'N') //true or false
 m.walk('N') //NEWS _U_L_RA LR?
 m.iswalk('N') //true or false
+m.get(); {x:1,y:1,v:'N',c:'A'} //c is char A V < >
 
 isxxx: out of range is false
 
