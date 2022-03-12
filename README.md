@@ -23,12 +23,14 @@ SP
 
 ```
 //interface
-
 var m =Mover(20,20)
-m.move(x,y)
-m.ismove(x,y) //true or false
+m.move(x,y,'N')
+m.ismove(x,y,'N') //true or false
 m.walk('N') //NEWS _U_L_RA LR?
 m.iswalk('N') //true or false
+
+isxxx: out of range is false
+
 ```
 
 
