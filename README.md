@@ -1,6 +1,13 @@
 # UtW
 UtW mean Under the World
 
+```
+import {fn} from "https://pinkromeo18.github.io/UtW/fn.js"
+```
+```
+import {Mover} from "https://pinkromeo18.github.io/UtW/Mover.js"
+```
+
 ## 方針
 ウィザードリィ型の迷宮データを簡単に作成、操作できる。
 
