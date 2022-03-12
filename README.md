@@ -28,6 +28,7 @@ UtW mean Under the World
 柱　柱　柱　柱　柱　柱　柱　柱　柱　柱　柱
 ５床　床　床　床　床　床　床　床　床　床　
 ...
+```
 - 文字列表示するため、座標系は、左上が（０、０）。最大は（１９、１９）
 - データ上は北が上。
 ```
@@ -42,6 +43,18 @@ UtW mean Under the World
 
 
 
+- 想定interface
+```
+var dat='...';
+var f1=UtW(dat,foots)
+f1.get(x,y)
+f1.set(x,y,`・壁・壁床壁・壁・`)
+f1.set(x,y,'N','壁')
+var mask=f1.getFoots()
+```
+
+
+---
 ## Note. 板型迷宮と箱型迷宮の違い
 ウィザードリィ型の迷宮は、板型迷宮に分類される。
 
