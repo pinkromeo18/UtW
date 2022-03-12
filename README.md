@@ -97,8 +97,9 @@ SP
 
 - 見た目上の表示
 ```
+//rule.js を読み込む
 wall；壁表示
-door；扉表示
+door：扉表示
 upstair：上り階段表示
 downstair：下り階段表示
 road：道表示。基本何も表示しない。
