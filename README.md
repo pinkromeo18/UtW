@@ -95,15 +95,23 @@ SP
 床のイベントオブジェクトかどうか。指定されていないシンボルは全てイベントオブジェクト。侵入可能。
 ```
 
-- 見た目上の表示
+- 見た目上の表示と移動判定は違う。
 ```
 //rule.js を読み込む
-wall；壁表示
-door：扉表示
-upstair：上り階段表示
-downstair：下り階段表示
-road：道表示。基本何も表示しない。
-object：イベント表示。道の上になにかあるように見える。
+wallable；壁表示。壁らしい。
+doorable：扉表示。扉らしい。
+upstair：上り階段表示。天上に塗りつぶした四角い枠がある。
+downstair：下り階段表示。床に塗りつぶした四角い枠がある。
+roadable：道表示。基本何も表示しない。
+objectable：イベント表示。床に四角い枠がある。
+
+//移動判定
+wall:
+door
+upstair:
+downstair:
+road:
+object:
 ```
 
 ### 想定interface
