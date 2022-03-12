@@ -5,7 +5,7 @@ UtW mean Under the World
 ウィザードリィ型の迷宮データを簡単に作成、操作できる。
 
 
-## 仕様 mover
+## 仕様 Mover
 - 枠を指定して、その間を移動できる。
 - キー操作によって、移動できる。
 ```
@@ -18,6 +18,17 @@ A：前進
 BXY
 LR：今の所なし。横歩き左右
 SP
+```
+- 北が上。
+
+```
+//interface
+
+var m =Mover(20,20)
+m.move(x,y)
+m.ismove(x,y) //true or false
+m.walk('N') //NEWS _U_L_RA LR?
+m.iswalk('N') //true or false
 ```
 
 
