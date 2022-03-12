@@ -52,6 +52,7 @@ export function Mover(w,h){
   return o;
 }
 
+/* usage
 var m=Mover(32,32);
 var {x,y,v,c}=m.move(0,0,'N')
 goz.add('debug',1,1);
@@ -65,3 +66,8 @@ goz.keyloop((k)=>{
    goz.txt('debug',c)
   
 });
+*/
+
+
+
+
