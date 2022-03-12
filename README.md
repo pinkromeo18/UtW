@@ -20,12 +20,12 @@ import {Mover} from "https://pinkromeo18.github.io/UtW/Mover.js"
 ```
 キーの仕様は、バーチャルキーをつかう。
 _U：前進
-_D
+_D：後退
 _L：左回転
 _R：右回転
 A：前進
 BXY
-LR：今の所なし。横歩き左右
+LR：横歩き左右
 SP
 ```
 - 北が上。
