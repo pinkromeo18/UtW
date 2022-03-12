@@ -11,6 +11,24 @@ UtW mean Under the World
 それぞれ、0,1,-1 のいずれかを取る。
 dvはプラスが右回転、マイナスが左回転
 
+
+//  N-
+//-E  W+
+//  S+
+
+//diff = diffmap[now][next];
+diffmap={
+ 'N':{
+ 
+ }
+ 'E':{
+ }
+ 'W':{
+ }
+ 'S':{
+ }
+}
+
 ```
 
 
