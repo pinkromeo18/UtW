@@ -147,6 +147,18 @@ export function xyary(a,b,c){
     ;
     return o;
   }
+  o.rotV=(v)=>{
+    //left is +, right is -  
+    //   N        E
+    //  W E  >>  N S
+    //   S        W
+    var n=0;
+    if(v==='N') n=0
+    else if(v==='E') n=1
+    else if(v==='S') n=2
+    else if(v==='W') n=-1
+    return o.rot(n)
+  }   
   o.rotR=()=>o.rot(-1)
   o.rotL=()=>o.rot(1)
   o.clone=()=>xyary(o);
