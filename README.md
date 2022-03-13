@@ -8,6 +8,21 @@ import {fn} from "https://pinkromeo18.github.io/UtW/fn.js"
 import {Mover} from "https://pinkromeo18.github.io/UtW/Mover.js"
 ```
 
+
+### rule.js
+```js
+import {rule} from "https://pinkromeo18.github.io/UtW/rule.js"
+
+var {view,walk}=rule;
+view.iswall(ch)
+view.isroad(ch)
+view.isupstair(ch)
+view.isdownstair(ch)
+view.isobject(ch)
+
+```
+
+
 ## 方針
 ウィザードリィ型の迷宮データを簡単に作成、操作できる。
 
