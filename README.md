@@ -59,38 +59,14 @@ view.isobject(ch)
 ---
 ## xyary
 xyary is 2 dimension utility
-```
-import {xyary} from "https://pinkromeo18.github.io/UtW/xyary.js"
-```
-### interface
-```
-[
-  "_ary",
-  "w",
-  "h",
-  "set",
-  "sets",
-  "get",
-  "getr",
-  "gets",
-  "rot",
-  "rotR",
-  "rotL",
-  "clone",
-  "toString",
-  "toView",
-  "toArray"
-]
-```
+
 ```js
+import {xyary} from "https://pinkromeo18.github.io/UtW/xyary.js"
+
 function debug(str,json){
   document.querySelector('pre')
     .textContent = (json)?JSON.stringify(str,void 0,2):str;
 }
-
-
-
-
 
 //xyary(w,h,value)
 var a = xyary(3,3,0);
@@ -132,3 +108,24 @@ debug(ret.toView(0,0,'x'))
 
 ```
 
+
+### interface
+```
+[
+  "_ary",
+  "w",
+  "h",
+  "set",
+  "sets",
+  "get",
+  "getr",
+  "gets",
+  "rot",
+  "rotR",
+  "rotL",
+  "clone",
+  "toString",
+  "toView",
+  "toArray"
+]
+```
