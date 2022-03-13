@@ -144,6 +144,7 @@ debug(ret.toView(0,0,'x'))
   "getr",
   "gets",
   "rot",
+  "rotV",
   "rotR",
   "rotL",
   "clone",
