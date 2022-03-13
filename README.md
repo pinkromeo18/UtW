@@ -8,6 +8,29 @@ import {fn} from "https://pinkromeo18.github.io/UtW/fn.js"
 import {Mover} from "https://pinkromeo18.github.io/UtW/Mover.js"
 ```
 
+## Mover.js
+```js
+import {Goz} from "https://pinkromeo18.github.io/goz/goz.js";
+var goz =Goz('.goz','https://pinkromeo18.github.io/goz/mons/');
+import {Mover} from "https://pinkromeo18.github.io/UtW/Mover.js"
+
+var m=Mover(32,32);
+var {x,y,v,c}=m.move(0,0,'N')
+goz.add('debug',1,1);
+goz.pos('debug',x,y);
+goz.txt('debug',c)
+
+goz.keyloop((k)=>{
+
+  if(!m.iswalk(k))return;
+  console.log(m.walk(k,'nonupdate'))
+  var {x,y,v,c}=m.walk(k);
+  goz.pos('debug',x,y);
+  goz.txt('debug',c)
+
+});
+```
+
 ---
 ## rule.js
 ```js
