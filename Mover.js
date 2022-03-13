@@ -6,19 +6,24 @@ export function Mover(w,h){
   var def={x:0,y:0,v:'N',c:'A'}
   ;
   var o=Object.assign({},def,{w,h});
-  o.move=(x,y,v)=>{
-    o.x=x;
-    o.y=y;
+  o.move=(x,y,v,nonupdate)=>{
     v=v.toUpperCase();
-    o.v=fn.isv(v)?v:'N';
-    o.c=fn.v2char(o.v);
+    v=fn.isv(v)?v:'N';
+    var c=fn.v2char(v);
+    if(nonupdate) return {x,y,v,c};
+    //
+    o.x=x
+    o.y=y
+    o.v=v
+    o.c=c
+    //
     return o.get();
   }
   o.ismove=(x,y)=>{ 
     var {w,h}=o;
     return !fn.out_of_range(x,y,w,h);
   }
-  o.walk=(key)=>{
+  o.walk=(key,nonupdate)=>{
     key=key.toUpperCase();
     var flg=fn.iskey(key)
     if(!flg)return o.get();
@@ -27,30 +32,30 @@ export function Mover(w,h){
     var nv = fn.k2v(key,v);
     var d =fn.diffxy(v,nv);
     var dx=d[0],dy=d[1];
-    if(key==='_L'||key==='_R') return o.move(x,y,nv);
-    return o.move(x+dx,y+dy,v)
+    if(key==='_L'||key==='_R') return o.move(x,y,nv,nonupdate);
+    return o.move(x+dx,y+dy,v,nonupdate)
   }
   o.iswalk=(key)=>{
-    key=key.toUpperCase();
-    var flg=fn.iskey(key)
-    if(!flg)return false;
-    //
-    var {v,x,y}=o;
-    var nv = fn.k2v(key,v);
-    var d =fn.diffxy(v,nv);
-    var dx=d[0],dy=d[1];
-    if(key==='_L'||key==='_R') return o.ismove(x,y);
-    return o.ismove(x+dx,y+dy)
+    var nonupdate=true;
+    var {x,y}=o.walk(key,nonupdate)
+    return o.ismove(x,y)
   }
-  o.get=()=>{    
+  o.get=()=>{
     var {x,y,v,c}=o;
     return {x,y,v,c}
   }
+  o.clone=()=>{
+    var {x,y,v,w,h}=o;
+    var _o=Mover(w,h)
+    _o.move(x,y,v);
+    return _o;    
+  }
   ;
-  console.log('Mover v1.0')
+  console.log('Mover v1.2 add nonupdate mode')
   console.log(JSON.stringify(Object.keys(o),null,2));
   return o;
 }
+
 
 /* usage
 var m=Mover(32,32);
@@ -67,7 +72,3 @@ goz.keyloop((k)=>{
   
 });
 */
-
-
-
-
