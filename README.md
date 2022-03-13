@@ -9,7 +9,7 @@ UtW mean Under the World
 ## xyary
 xyary is 2 dimension utility
 ```
-import {xyary} from "https://pinkromeo18.github.io/xyary/xyary.js"
+import {xyary} from "https://pinkromeo18.github.io/UtW/xyary.js"
 ```
 ### interface
 ```
