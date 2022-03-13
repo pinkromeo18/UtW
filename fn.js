@@ -1,4 +1,14 @@
 var fn={}
+
+  fn.rotL = a => a[0].map((_, c) => a.map(r => r[c])).reverse();
+  fn.rotR = a => a[0].map((_, c) => a.map(r => r[c]).reverse());
+  fn.splitArray=function splitArray(array, part) {
+    var tmp = [];
+    for(var i = 0; i < array.length; i += part)
+      tmp.push(array.slice(i, i + part));
+    return tmp;
+  }
+
   fn.between=(x,z,y)=>{ return z >= x && z <= y}
   
   fn.out_of_range=(x,y,w,h)=>{
