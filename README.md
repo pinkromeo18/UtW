@@ -154,22 +154,15 @@ debug(ret.toView(0,0,'x'))
 ]
 ```
 
-### wizary
-wizadry map 用のデータ
+### toWiz
 ```
 
-var wz=wizary(`
-・壁・壁・壁・壁・
-壁　壁　壁　壁　壁
-・壁・壁・壁・壁・
-壁　壁　壁　壁　壁
-`,20,20)
-;
+var {w,h,_ary}=toWiz('');
 
-wz.get(0,0) //{N:'',E:'',W:'',S:'',G:'',C:''}
-wz.get(0,0,N) //壁
-wz.gets(0,0,w,h,'0').rotV('N')
-wz.gets(0,0,w,h,'0').rotV('E')
+{N,E,S,W,G,C}
+
+xyary( toWiz('') );
+xyary.get(0,0).N
 
 
 ```
