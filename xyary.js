@@ -242,8 +242,7 @@ export function xyary(a,b,c){
   ;
   if(window && !window.__xyary__){
    //console.log("xyary v1.2 care the maximun call stack by is.flatarray()")
-   //console.log("xyary v1.3 add toWiz(), xyary.toViewWiz")
-    
+   console.log("xyary v1.3 add toWiz(), xyary.toViewWiz")    
    console.log(JSON.stringify(Object.keys(o),null,2))
    window.__xyary__ = true;
   }
