@@ -100,17 +100,19 @@
   view.isupstair=(ch)=>is(ch,view,upstair)
   view.isdownstair=(ch)=>is(ch,view,downstair)
   view.isobject=(ch)=>is(ch,view,object)
+  view.isdefined=(ch)=>!!Symbols[ch];
   //
   var walk={}
   walk.isroad=(ch)=>is(ch,walk,road)  
   walk.iswall=(ch)=>is(ch,wall,road)
   walk.isdoor=(ch)=>is(ch,door,road)
+  walk.isdefined=(ch)=>!!Symbols[ch];
   //
   var getspecial=(ch)=>symbols[ch][special];
   //
   var o={view,walk,rule,symbols,getspecial}
   //
-  console.log('rule v0.0')
+  console.log('rule v0.0 add view.isdefined')
   console.log(JSON.stringify(o,null,2))
   //
   export {o as rule}
