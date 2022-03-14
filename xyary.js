@@ -1,11 +1,8 @@
 import "https://pinkromeo18.github.io/use/is.js"
 import {fn} from "https://pinkromeo18.github.io/UtW/fn.js"
 
-is.flatarray= a =>{
-  if(!is.array(a)) return false;
-  var b = a.flat();
-  return b.length===a.length
-}
+is.flatarray= a => is.array(a) && !is.array(a[0]) ;
+
 is.xyary= a => is.object(a) && is.not.undefined(a._ary);
 
 function mode0(obj,w,h){
@@ -171,7 +168,7 @@ export function xyary(a,b,c){
   //o.toArray(1) is flat
   ;
   if(window && !window.__xyary__){
-   console.log("xyary v1.1")
+   console.log("xyary v1.2 care the maximun call stack by is.flatarray()")
    console.log(JSON.stringify(Object.keys(o),null,2))
    window.__xyary__ = true;
   }
