@@ -84,7 +84,7 @@ view.isobject(ch)
 xyary is 2 dimension utility
 
 ```js
-import {xyary} from "https://pinkromeo18.github.io/UtW/xyary.js"
+import {xyary,toWiz} from "https://pinkromeo18.github.io/UtW/xyary.js"
 
 function debug(str,json){
   document.querySelector('pre')
