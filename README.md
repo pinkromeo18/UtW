@@ -156,7 +156,7 @@ debug(ret.toView(0,0,'x'))
 ```
 
 ### toWiz
-```
+```js
 import {xyary, toWiz} from "https://pinkromeo18.github.io/UtW/xyary.js"
 
 var d=toWiz(`
