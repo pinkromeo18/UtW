@@ -1,7 +1,7 @@
 import "https://pinkromeo18.github.io/use/is.js"
 import {fn} from "https://pinkromeo18.github.io/UtW/fn.js"
 
-is.flatarray= a => is.array(a) && !is.array(a[0]) ;
+is.flatarray= a => is.array(a) && !is.array(a[0]) ; //<----------------- cared the maximun call stack
 
 is.xyary= a => is.object(a) && is.not.undefined(a._ary);
 
