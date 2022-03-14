@@ -1,6 +1,10 @@
 import "https://pinkromeo18.github.io/use/is.js"
 import {fn} from "https://pinkromeo18.github.io/UtW/fn.js"
 
+import {rule} from  "https://pinkromeo18.github.io/UtW/rule.js"; //<------------------------
+var {view}=rule;
+
+
 is.flatarray= a => is.array(a) && !is.array(a[0]) ; //<----------------- cared the maximun call stack
 
 is.xyary= a => is.object(a) && is.not.undefined(a._ary);
@@ -97,6 +101,63 @@ function pa(a,b,c){
   o.h=c
   return o;
 }
+////////////////////////////////////////////////
+export function toWiz(dat){
+  dat=dat||'壁';
+  var def ={N:'　',E:'　',W:'　',S:'　',G:'　',C:'　'}
+  ;
+  var w=xyary(20,20,def);
+ 
+  var un='・'
+  var org=xyary(41,41,un);
+  org.sets(0,0,dat)
+  //console.log(org.get(0,0))
+  //    N-y
+  //-x W E+x
+  //    S+y
+  for(var y=1,_y=0; y<41; y+=2,_y++)
+   for(var x=1,_x=0; x<41; x+=2,_x++){
+     
+     var o =Object.assign({},def), ch;
+     ch = org.get(x+0,y-1,un)
+     if(ch!==un) o.N=ch
+     
+     ch = org.get(x+1,y+0,un)
+     if(ch!==un) o.E=ch
+     
+     ch = org.get(x+0,y+1,un)
+     if(ch!==un) o.S=ch
+     
+     ch = org.get(x-1,y+0,un)
+     if(ch!==un) o.W=ch
+     
+     ch = org.get(x,y,un);
+     if(view.isupstair(ch)) o.C=ch
+     else if(ch!==un) o.G=ch
+     ;
+     w.set(_x,_y,o)
+   }
+  return w;  
+}
+
+function toWizDecode(xyaryobj){
+  var obj=xyaryobj;
+  var def='・'
+  var ret = xyary(41,41,def);
+  for(var y=1,_y=0; y<41; y+=2,_y++)
+   for(var x=1,_x=0; x<41; x+=2,_x++){
+     
+     var o=obj.get(_x,_y);
+     if(view.isdefined(o.G) && view.isupstair(o.C)) ret.set(x,y,o.C)
+     else ret.set(x,y,o.G)
+     ret.set(x+0,y-1,o.N)     
+     ret.set(x+1,y+0,o.E)     
+     ret.set(x+0,y+1,o.S)     
+     ret.set(x-1,y+0,o.W)      
+   }
+  
+  return ret.toView();
+}
 
 ////////////////////////////////////////////////
 export function xyary(a,b,c){
@@ -165,10 +226,24 @@ export function xyary(a,b,c){
     return o.clone().set(x,y,c).toView()
   }
   o.toArray=(n)=>n?o._ary.flat():o._ary;
-  //o.toArray(1) is flat
+  //o.toArray(1) is flat  
+  //<---------------add toViewWiz
+  o.toViewWiz=(x,y,c)=>{
+    if(is.undefined(x)){
+      return toWizDecode(o)
+    }else{
+      var _o=o.clone();
+      var a= _o.get(x,y);
+      a.G=c;
+      return toWizDecode(_o)
+    }
+  }
+  
   ;
   if(window && !window.__xyary__){
-   console.log("xyary v1.2 care the maximun call stack by is.flatarray()")
+   //console.log("xyary v1.2 care the maximun call stack by is.flatarray()")
+   //console.log("xyary v1.3 add toWiz(), xyary.toViewWiz")
+    
    console.log(JSON.stringify(Object.keys(o),null,2))
    window.__xyary__ = true;
   }
