@@ -153,3 +153,27 @@ debug(ret.toView(0,0,'x'))
   "toArray"
 ]
 ```
+
+### wizary
+wizadry map 用のデータ
+```
+
+var wz=wizary(`
+・壁・壁・壁・壁・
+壁　壁　壁　壁　壁
+・壁・壁・壁・壁・
+壁　壁　壁　壁　壁
+`,20,20)
+;
+
+wz.get(0,0) //{N:'',E:'',W:'',S:'',G:'',C:''}
+wz.get(0,0,N) //壁
+wz.gets(0,0,w,h,'0').rotV('N')
+wz.gets(0,0,w,h,'0').rotV('E')
+
+
+```
+
+
+
+
