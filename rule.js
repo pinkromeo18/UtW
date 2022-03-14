@@ -51,7 +51,7 @@
   var {road,wall,door,upstair,downstair,object}=rule;
   var symbols={
     //[view,walk]
-    '道':[road,road],'　':[road,road],
+    '道':[road,road],'　':[road,road],'・':[road,road],'柱':[road,road],
     '壁':[wall,wall],'０':[wall,wall],'１':[wall,wall],'２':[wall,wall],'３':[wall,wall],'４':[wall,wall],'５':[wall,wall],'６':[wall,wall],'７':[wall,wall],'８':[wall,wall],'９':[wall,wall],'■':[wall,wall],
     '岩':[object,wall,1],
     '通':[wall,road],
