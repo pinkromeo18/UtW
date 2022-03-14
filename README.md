@@ -150,20 +150,25 @@ debug(ret.toView(0,0,'x'))
   "clone",
   "toString",
   "toView",
-  "toArray"
+  "toArray",
+  "toViewWiz"
 ]
 ```
 
 ### toWiz
 ```
+import {xyary, toWiz} from "https://pinkromeo18.github.io/UtW/xyary.js"
 
-var {w,h,_ary}=toWiz('');
+var d=toWiz(`
+・壁・
+壁　壁
+・壁・
+`)
 
-{N,E,S,W,G,C}
+var w=xyary(d);
+w.get(0,0).N
 
-xyary( toWiz('') );
-xyary.get(0,0).N
-
+console.log( w.toViewWiz(0,0,'＊')
 
 ```
 
