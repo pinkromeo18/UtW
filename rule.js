@@ -100,13 +100,13 @@
   view.isupstair=(ch)=>is(ch,view,upstair)
   view.isdownstair=(ch)=>is(ch,view,downstair)
   view.isobject=(ch)=>is(ch,view,object)
-  view.isdefined=(ch)=>!!Symbols[ch];
+  view.isdefined=(ch)=>!!symbols[ch];
   //
   var walk={}
   walk.isroad=(ch)=>is(ch,walk,road)  
   walk.iswall=(ch)=>is(ch,wall,road)
   walk.isdoor=(ch)=>is(ch,door,road)
-  walk.isdefined=(ch)=>!!Symbols[ch];
+  walk.isdefined=(ch)=>!!symbols[ch];
   //
   var getspecial=(ch)=>symbols[ch][special];
   //
