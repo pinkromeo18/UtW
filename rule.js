@@ -48,7 +48,7 @@
   mode.walk=1
   mode.special=2
   //
-  var {view,walk,special}=mode;
+  //var {view,walk,special}=mode;
   var {road,wall,door,upstair,downstair,object}=rule;
   var symbols={
     //[view,walk]
@@ -102,21 +102,21 @@
   }
   //
   var view={}
-  view.isroad=(ch)=>is(ch,view,road)
-  view.iswall=(ch)=>is(ch,view,wall)
-  view.isdoor=(ch)=>is(ch,view,door)
-  view.isupstair=(ch)=>is(ch,view,upstair)
-  view.isdownstair=(ch)=>is(ch,view,downstair)
-  view.isobject=(ch)=>is(ch,view,object)
+  view.isroad=(ch)=>is(ch,mode.view,road)
+  view.iswall=(ch)=>is(ch,mode.view,wall)
+  view.isdoor=(ch)=>is(ch,mode.view,door)
+  view.isupstair=(ch)=>is(ch,mode.view,upstair)
+  view.isdownstair=(ch)=>is(ch,mode.view,downstair)
+  view.isobject=(ch)=>is(ch,mode.view,object)
   view.isdefined=(ch)=>!!symbols[ch];
   //
   var walk={}
-  walk.isroad=(ch)=>is(ch,walk,road) //<----------------  
-  walk.iswall=(ch)=>is(ch,walk,wall) //<----------------
-  walk.isdoor=(ch)=>is(ch,walk,door) //<----------------
+  walk.isroad=(ch)=>is(ch,mode.walk,road) //<----------------  
+  walk.iswall=(ch)=>is(ch,mode.walk,wall) //<----------------
+  walk.isdoor=(ch)=>is(ch,mode.walk,door) //<----------------
   walk.isdefined=(ch)=>!!symbols[ch];
   //
-  var getspecial=(ch)=>symbols[ch][special];
+  var getspecial=(ch)=>symbols[ch][mode.special];
   //
   var o={view,walk,rule,symbols,getspecial}
   //
