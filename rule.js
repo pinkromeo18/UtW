@@ -31,6 +31,7 @@
 　浮遊床、浮遊の魔法を強制的に得る。ピット、回転床、落とし穴に無効化。
 　封魔床、魔法禁止の床。魔法を使うことができない。戦闘中も同様。
 　敵固定、固定戦闘。一度倒すと階層移動しない限り消滅する。  
+　あ～ん、ひらがなはイベント。
   */
   
   //
@@ -85,6 +86,13 @@
     '封':[road,road],
 
     '敵':[object,road,1],
+    
+    'あ':[object,road],'い':[object,road],'う':[object,road],'え':[object,road],'お':[object,road],
+    'か':[object,road],'き':[object,road],'く':[object,road],'け':[object,road],'こ':[object,road],
+    'さ':[object,road],'し':[object,road],'す':[object,road],'せ':[object,road],'そ':[object,road],
+    'た':[object,road],'ち':[object,road],'つ':[object,road],'て':[object,road],'と':[object,road],
+    'な':[object,road],'に':[object,road],'ぬ':[object,road],'ね':[object,road],'の':[object,road],
+    
   }
   //  
   var is=(ch,mode,rule)=>{
