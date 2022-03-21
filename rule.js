@@ -111,9 +111,9 @@
   view.isdefined=(ch)=>!!symbols[ch];
   //
   var walk={}
-  walk.isroad=(ch)=>is(ch,walk,road)  
-  walk.iswall=(ch)=>is(ch,wall,road)
-  walk.isdoor=(ch)=>is(ch,door,road)
+  walk.isroad=(ch)=>is(ch,walk,road) //<----------------  
+  walk.iswall=(ch)=>is(ch,walk,wall) //<----------------
+  walk.isdoor=(ch)=>is(ch,walk,door) //<----------------
   walk.isdefined=(ch)=>!!symbols[ch];
   //
   var getspecial=(ch)=>symbols[ch][special];
