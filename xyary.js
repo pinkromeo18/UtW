@@ -239,11 +239,19 @@ export function xyary(a,b,c){
     }
   }
   
+  //<-------------add toWire
+  o.toWire=(x,y,v)=>{
+    var wire= o.gets(x-2,y-2,5,5,'壁').rotV(v).gets(1,0,3,3,'壁')
+    return wire.toString()    
+  }
+  
   ;
   if(window && !window.__xyary__){
    //console.log("xyary v1.2 care the maximun call stack by is.flatarray()")
    //console.log("xyary v1.3 add toWiz(), xyary.toViewWiz")    
-   console.log("xyary v1.4 bugfix xyary.gets")        
+   //console.log("xyary v1.4 bugfix xyary.gets")
+   console.log("xyary v1.5 add xyary.toWire(x,y,v) ")
+    
    console.log(JSON.stringify(Object.keys(o),null,2))
    window.__xyary__ = true;
   }
