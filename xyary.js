@@ -190,8 +190,8 @@ export function xyary(a,b,c){
   }
   o.gets=(_x,_y,w,h,def)=>{
     var _o = xyary(w,h,def)
-    for(var y=_y,dy=0; y<h; y++,dy++)
-      for(var x=_x,dx=0; x<w; x++,dx++)
+    for(var y=_y,dy=0; dy<h; y++,dy++)  //<--------------- dy<h
+      for(var x=_x,dx=0; dx<w; x++,dx++) //<-------------- dx<w
         _o.set(dx,dy,o.get(x,y,def))
     ;
     return _o;
@@ -242,7 +242,8 @@ export function xyary(a,b,c){
   ;
   if(window && !window.__xyary__){
    //console.log("xyary v1.2 care the maximun call stack by is.flatarray()")
-   console.log("xyary v1.3 add toWiz(), xyary.toViewWiz")    
+   //console.log("xyary v1.3 add toWiz(), xyary.toViewWiz")    
+   console.log("xyary v1.4 bugfix xyary.gets")        
    console.log(JSON.stringify(Object.keys(o),null,2))
    window.__xyary__ = true;
   }
