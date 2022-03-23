@@ -68,8 +68,8 @@
     '東':[door,door],
     '南':[door,door],
     '西':[door,door],
-    '上':[object,road],
-    '下':[object,road],
+    '上':[upstair,road],   //<-----------------
+    '下':[downstair,road], //<-----------------
     'プ':[object,road],
     'メ':[object,road],
     'ボ':[object,road],
