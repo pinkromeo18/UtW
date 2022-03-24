@@ -60,9 +60,14 @@ export function wireframe(mapdata){
 
     _4o=fn.path([6-p,11+p,10+p,11+p,11+p,13-p,5-p,13-p],g) 
 
-    _4f=fn.path([3,3,13,3,13,13,3,13],g)
-
     _4d=fn.path([5,5,11,5,11,13,5,13],g)
+    
+    //mip a little big
+    var mip= ctx.lineWidth/4/g
+    // * * +
+    // * *
+    // +
+    _4f=fn.path([3-mip,3-mip,13+mip,3-mip,13+mip,13+mip,3-mip,13+mip],g)
 
     var {
       isroad,
