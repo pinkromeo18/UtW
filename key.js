@@ -43,8 +43,9 @@ export function key(){return new Promise(sol=>{
 }
 
 export async function keyloop(caller){
-    await caller(await key(),sleep)
-    return keyloop(caller)
+    var ret=await caller(await key(),sleep)
+    if(ret) return //escape the keyloop
+    return await keyloop(caller)
 }
 
 /*
