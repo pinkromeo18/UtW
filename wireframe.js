@@ -139,6 +139,8 @@ export function wireframe(mapdata){
   
 }
 
-
-//if(fn.q('#demo'))
-// fn.q('#demo').src=wireframe(`壁扉壁道道道道道道`)
+/*
+ import {wireframe} from "https://pinkromeo18.github.io/UtW/wireframe.js"
+ if(fn.q('#demo'))
+ fn.q('#demo').src=wireframe(`壁扉壁道道道道道道`)
+*/
