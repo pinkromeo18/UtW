@@ -121,7 +121,7 @@
   var o={view,walk,rule,symbols,getspecial}
   //
   console.log('rule v0.0 add view.isdefined')
-  console.log(JSON.stringify(o,null,2))
+  //console.log(JSON.stringify(o,null,2)) //<------ log so hard
   //
   export {o as rule}
   
