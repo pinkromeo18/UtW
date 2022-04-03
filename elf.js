@@ -44,7 +44,7 @@ function get(el){
       }
       if(k==='_U' || k==='_D' || k===void 0/*firstdraw*/){
         //draw
-        console.log(i,pos)
+        //console.log(i,pos)
         var mark= cursor ,sp='　',cep='\n'
         var temp = ary.slice(i,i+boxmax)
         .map((d,i)=>(i===pos)?mark+d:sp+d).join(cep)
@@ -55,7 +55,7 @@ function get(el){
 
     //if(k==='A'){
     var selectnumber = pos+i
-    console.log(selectnumber)
+    //console.log(selectnumber)
     obj.$sel=selectnumber
     //return selectnumber
     //}
