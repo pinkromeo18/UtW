@@ -1,17 +1,79 @@
+//window.CP.PenTimer.MAX_TIME_IN_LOOP_WO_EXIT=10*60*1000
+
 import "https://pinkromeo18.github.io/use/use.js"
 import "https://pinkromeo18.github.io/use/is.js"
+import {key,sleep} from "https://pinkromeo18.github.io/UtW/key.js"
 
 //elf.js is element control for view
 function get(el){
   var obj={}
+  // await 
+  obj.log=async(str,lcr)=>{
+    const len = ~~(geth(el)/2 + 0.6) ,cep='\n'
+    var stack = str.split(cep)
+    const {txt}=obj
+    while(stack.length!=0){
+      var ary=stack.slice(0,len)
+      txt(ary.join(cep+cep),lcr)
+      await key()     
+      stack.splice(0,1)
+    }
+    return obj
+  }
+  obj.$sel=0
+  obj.sel=async(str,cursor)=>{
+    const boxmax = geth(el),
+          {txt}=obj
+    var pos = 0 // pos is 0~boxmax-1
+    var ary = str.split('\n')
+    var arymax = ary.length
+    var i = 0 // i is 0~arymax-1
+    var k
+    
+    while(k!=='A'){
+      if(k==='_U'){
+        if(pos===0) i--
+        else pos=modu(--pos, boxmax>arymax?arymax:boxmax )
+        if(i<0) i=0;
+      }else if(k==='_D'){
+        if(pos===boxmax-1) i++
+        else pos=modu(++pos, boxmax>arymax?arymax:boxmax )
+        var absmax =Math.abs(arymax-boxmax)
+        if(i>absmax) i=absmax;
+      }
+      if(k==='_U' || k==='_D' || k===void 0/*firstdraw*/){
+        //draw
+        console.log(i,pos)
+        var mark='＊',sp='　',cep='\n'
+        var temp = ary.slice(i,i+boxmax)
+        .map((d,i)=>(i===pos)?mark+d:sp+d).join(cep)
+        txt(temp)
+      }
+      k=await key()
+    }
+
+    //if(k==='A'){
+    var selectnumber = pos+i
+    console.log(selectnumber)
+    obj.$sel=selectnumber
+    //return selectnumber
+    //}
+
+    return obj;
+  }
+
+  function modu(a,n){return ((a % n ) + n ) % n}
+
+  //
   obj.text=obj.txt =(str,lcr)=>{
     lcr = lcr||'l'
     lcr = lcr[0]
+    if(str===void 0) str=''
     if(lcr==='l') lcr ='left'
     else if(lcr==='c') lcr ='center'
     else if(lcr==='r') lcr ='right'    
     el.style.textAlign = lcr
-    el.textContent = str||''
+    el.textContent = str
     return obj
   }
   obj.img =(file,baseurl,coverflg)=>{
@@ -63,6 +125,18 @@ function get(el){
   return obj
 }
 
+function isborder(el){
+  const num=parseInt(el.style.padding||0)
+  return num!=0
+}
+
+function geth(el){
+  const unit =getpx()
+  var height = parseFloat(el.style.height||0)
+  if(isborder(el)) height =height-unit*2
+  return ~~(height/unit)
+}
+
 function getpx() {
   var el = fn.q('.gp')||document.documentElement  
   return parseFloat(getComputedStyle(el).fontSize)||16
@@ -71,7 +145,7 @@ function getpx() {
 function getel(query){
   if(!query)return void 0
   if(is.domNode(query))return query
-  
+
   //
   var mode='tag',
       tag ='',
@@ -152,9 +226,11 @@ export function elf(query,parent,gameflg){
       p = is.domNode(parent)?parent:is.object(parent)?parent.el:fn.q(parent) 
   if(p) fn.a2(el,p)
   if(gameflg) mode_of_game(el,p)
-  var obj = Object.assign({el,query},get(el))
+  var obj = Object.assign(get(el),{el,query})
   return obj;
 }
+
+
 
 /*
 
@@ -184,5 +260,22 @@ $log.text(`
 
 
 $dungeon.img(wireframe(`壁扉壁道道道道道道`),'',1)
+
+/////////
+
+var $p=elf('#goz','body')
+var $frame =elf('#frame',$p,1).size(32,32).pos(0,0).border(1)
+var $log =elf('#log',$p,1).size(30,7).pos(1,1).border(1)
+;(async()=>{
+
+  var temp="0123456789".split('').map(d=>'line'+d).join('\n')
+  await $log.sel(temp,'＞')
+  $log.show(false)
+  await sleep(300)
+  $log.show(true),$log.text('end')
+  console.log($log)
+
+
+})();
 
 */
